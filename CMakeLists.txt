@@ -6,17 +6,21 @@ FIND_PACKAGE(Threads)
 
 # make microsoft compiler to compile 64
 SET(CMAKE_CL_64 TRUE)
-IF( MSVC )
+#IF( MSVC )
 	SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 	SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 	SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/)
 	ADD_DEFINITIONS( -D_VARIADIC_MAX=10)
-ENDIF( MSVC )
+#ENDIF( MSVC )
 SET(CMAKE_CXX_COMPILER_FLAGS "${CMAKE_CXX_COMPILER_FLAGS} /EHsc")
 SET(CMAKE_CXX_COMPILER_FLAGS "${CMAKE_CXX_COMPILER_FLAGS} /W3")
 # enabling testing and setting up google test framework
 # downloaded automatically at first build once.
 ENABLE_TESTING()
+
+add_executable(simple_server simple_server.cpp)
+add_executable(simple_client simple_client.cpp)
+
 CONFIGURE_FILE(cmake/googletestconfig.txt.in external/googletest/CMakeLists.txt)
 EXECUTE_PROCESS(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
 RESULT_VARIABLE result

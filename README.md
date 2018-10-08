@@ -14,7 +14,8 @@ This is broader concept in pipe implementation, it allows one and two way commun
 
 progresive
 
-2. writing simple code
+2. writing simple code (90 mins)
+    - code compiling few simple tests and simple codes running.
 1. constribution time 2-3 hrs
     - reading and understanding NamedPipes concept and API documentation.
     - Initial project setup and compiling successfully on windows from github.
